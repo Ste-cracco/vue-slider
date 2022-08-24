@@ -25,18 +25,16 @@ const app = new Vue({
     methods: {
       nextSlide() {
 		this.activeSlide++
-		if(this.activeSlide >= this.slides.lenght) {
+		if(this.activeSlide >= this.slides.length) {
 			this.activeSlide = 0
 		}
-	
-		console.log('slide attiva:', this.activeSlide)	
 	  },
 
 	  prevSlide() {
-		if(this.activeSlide === 3) {
-			this.activeSlide === 0
-		}
-		this.activeSlide--		
+		this.activeSlide--	
+		if(this.activeSlide < 0) {
+			this.activeSlide = 4
+		}	
 	  }
     }
 })
