@@ -18,8 +18,8 @@
 
         <ul class="slides-wrapper">
           <li v-for = "(slide, index) in slides"
-            :class = "(slide[0]) ? 'slide active' : 'slide' ">
-            {{ index }} - {{ slide }}
+            :class = "(index === activeSlide) ? 'slide active' : 'slide' ">
+            <!-- {{ index }} - {{ slide }} -->
             <img :src="slides[index]" alt="">
 
           </li>
@@ -41,10 +41,12 @@
         </ul>
 
         <div class="arrows">
-          <p class="arrow-prev">
+          <p class="arrow-prev" 
+            @click = "prevSlide()" >
             <i class="fa-solid fa-chevron-left"></i>
           </p>
-          <p class="arrow-next">
+          <p class="arrow-next "
+            @click = "nextSlide()">
             <i class="fa-solid fa-chevron-right"></i>
           </p>
         </div>
